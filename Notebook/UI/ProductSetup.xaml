@@ -1,0 +1,109 @@
+﻿<Window x:Class="migueladanrm.Notebook.UI.ProductSetup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:migueladanrm.Notebook.UI"
+        mc:Ignorable="d"
+        Title="Notebook" Height="500" Width="600" ResizeMode="CanMinimize" UseLayoutRounding="True" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style x:Key="Style.LabelPageTitle" TargetType="{x:Type Label}">
+                <Setter Property="FontFamily" Value="Segoe UI Semilight"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="Foreground" Value="#757575"/>
+                <Setter Property="Grid.Row" Value="0"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="0,10,0,0"/>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <Grid x:Name="LayoutRoot">
+        <Grid x:Name="LayoutDefault">
+
+            <Grid x:Name="PageStart" d:IsHidden="True">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="C:\Users\Miguel\Desktop\notebook@256px.png" HorizontalAlignment="Center" Stretch="Uniform" Width="96">
+                        <Image.Effect>
+                            <DropShadowEffect BlurRadius="3" Color="Gray" Direction="270" Opacity="0.35" ShadowDepth="2"/>
+                        </Image.Effect>
+                    </Image>
+                    <Label Content="¡Bienvenido a Notebook!" FontFamily="Segoe UI Semilight" FontSize="32" Foreground="#909090" />
+                    <TextBlock Text="Presione 'Siguiente' para continuar." HorizontalAlignment="Center" Foreground="#a0a0a0" FontFamily="Segoe UI Semibold"/>
+                </StackPanel>
+            </Grid>
+
+            <Grid x:Name="PageSetDataSource">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Label Content="Almacenamiento de datos" Style="{StaticResource Style.LabelPageTitle}"/>
+                <TextBlock FontFamily="Segoe UI Semibold" Text="Es necesario que establezca un destino de almacenamiento de los datos, puede crear una nueva base de datos o utilizar una existente." TextAlignment="Center" TextWrapping="Wrap" Grid.Row="1" Margin="75,0"/>
+
+                <Grid Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Seleccione el origen de datos:" Grid.Row="0" HorizontalAlignment="Center"/>
+
+                    <StackPanel Grid.Row="1" Margin="0,10,0,0">
+                        <StackPanel.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="Background" Value="White"/>
+                                <Setter Property="BorderBrush" Value="#A0A0A0"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                                <Setter Property="CornerRadius" Value="5"/>
+                                <Setter Property="Padding" Value="5"/>
+                                <Setter Property="Width" Value="250"/>
+                            </Style>
+                            <Style TargetType="{x:Type Label}">
+                                <Setter Property="FontFamily" Value="Segoe UI Semibold"/>
+                            </Style>
+                        </StackPanel.Resources>
+
+                        <Border >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.Column="0"/>
+                                <Label Content="Nueva base de datos" Grid.Column="1"/>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+            
+            <Grid x:Name="ContainerNavigation" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button Content="&lt; Atrás" Grid.Column="0" Width="70"/>
+                <Button Content="Siguiente &gt;" Grid.Column="1" Width="70"/>
+            </Grid>
+
+        </Grid>
+
+        <Grid x:Name="LayoutDialogs" d:IsHidden="True">
+            <Grid.Background>
+                <SolidColorBrush Color="Black" Opacity="0.35"/>
+            </Grid.Background>
+        </Grid>
+
+    </Grid>
+</Window>

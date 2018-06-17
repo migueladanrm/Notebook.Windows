@@ -19,7 +19,7 @@ namespace migueladanrm.Notebook
         /// <param name="e">Argumentos de línea de comandos.</param>
         protected override void OnStartup(StartupEventArgs e)
         {
-
+            new UI.ProductSetup().Show();
         }
     }
 }
